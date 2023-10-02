@@ -44,7 +44,7 @@ dependencies:
   pinput: ^3.0.1
   image_picker: ^1.0.4
   firebase_auth: ^4.6.0
-  firebase_core: ^2.12.0
+  firebase_core: ^2.16.0
   firebase_auth_dart: ^1.0.1
   #  cloud_firestore: ^4.7.0
   google_sign_in: ^6.1.0

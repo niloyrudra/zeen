@@ -50,7 +50,7 @@ class _ResidencyProofScreenState extends State<ResidencyProofScreen> {
                   ),
                   Text(
                     "Proof of residency",
-                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
                           fontWeight: FontWeight.w700,
                           fontSize: 24,
                         ),
@@ -60,7 +60,7 @@ class _ResidencyProofScreenState extends State<ResidencyProofScreen> {
                   ),
                   Text(
                     "Prove you live in Indonesia",
-                    style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                           fontWeight: FontWeight.w500,
                           fontSize: 16,
                           color: const Color(0xffA2A0A8),
@@ -75,7 +75,7 @@ class _ResidencyProofScreenState extends State<ResidencyProofScreen> {
                         ),
                         Text(
                           "Nationality",
-                          style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 14,
                                 color: const Color(0xffA2A0A8),
@@ -116,7 +116,7 @@ class _ResidencyProofScreenState extends State<ResidencyProofScreen> {
                                         children: [
                                           Text(
                                             "Indonesian",
-                                            style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                                   fontWeight: FontWeight.w600,
                                                   fontSize: 16,
                                                   color: AppTheme.isLightTheme == false ? Colors.white : const Color(0xff15141F),
@@ -137,7 +137,7 @@ class _ResidencyProofScreenState extends State<ResidencyProofScreen> {
                                     child: Text("Change",
                                         style: Theme.of(context)
                                             .textTheme
-                                            .bodyText2!
+                                            .bodyMedium!
                                             .copyWith(fontWeight: FontWeight.w600, fontSize: 12, color: HexColor(AppTheme.primaryColorString!))),
                                   ),
                                 )
@@ -148,7 +148,7 @@ class _ResidencyProofScreenState extends State<ResidencyProofScreen> {
                         const SizedBox(height: 20),
                         Text(
                           "Method of verification",
-                          style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 14,
                                 color: const Color(0xffA2A0A8),

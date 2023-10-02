@@ -98,7 +98,11 @@ class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
                             padding: const EdgeInsets.all(14.0),
                             child: SvgPicture.asset(
                               DefaultImages.phone,
-                              color: _focusNodes[0].hasFocus ? HexColor(AppTheme.primaryColorString!) : const Color(0xffA2A0A8),
+                              colorFilter: ColorFilter.mode(
+                                  _focusNodes[0].hasFocus ? HexColor(AppTheme.primaryColorString!) : const Color(0xffA2A0A8),
+                                  BlendMode.srcIn
+                              ),
+                              // color: _focusNodes[0].hasFocus ? HexColor(AppTheme.primaryColorString!) : const Color(0xffA2A0A8),
                               // color:  HexColor(AppTheme.secondaryColorString!)
                             ),
                           ),

@@ -70,12 +70,21 @@ class _TabScreenState extends State<TabScreen> {
               width: 20,
               child: SvgPicture.asset(
                 DefaultImages.home,
-                color: tabController.pageIndex.value == 0
-                    ? HexColor(AppTheme.primaryColorString!)
-                    : AppTheme.isLightTheme == false
-                    ? const Color(0xffA2A0A8)
-                    : HexColor(AppTheme.primaryColorString!)
-                    .withOpacity(0.4),
+                colorFilter: ColorFilter.mode(
+                    tabController.pageIndex.value == 2
+                        ? HexColor(AppTheme.primaryColorString!)
+                        : AppTheme.isLightTheme == false
+                        ? const Color(0xffA2A0A8)
+                        : HexColor(AppTheme.primaryColorString!)
+                        .withOpacity(0.4),
+                    BlendMode.srcIn
+                ),
+                // color: tabController.pageIndex.value == 0
+                //     ? HexColor(AppTheme.primaryColorString!)
+                //     : AppTheme.isLightTheme == false
+                //     ? const Color(0xffA2A0A8)
+                //     : HexColor(AppTheme.primaryColorString!)
+                //     .withOpacity(0.4),
               ),
             ),
             label: "home",
@@ -86,12 +95,21 @@ class _TabScreenState extends State<TabScreen> {
               width: 20,
               child: SvgPicture.asset(
                 DefaultImages.chart,
-                color: tabController.pageIndex.value == 1
-                    ? HexColor(AppTheme.primaryColorString!)
-                    : AppTheme.isLightTheme == false
-                    ? const Color(0xffA2A0A8)
-                    : HexColor(AppTheme.primaryColorString!)
-                    .withOpacity(0.4),
+                colorFilter: ColorFilter.mode(
+                    tabController.pageIndex.value == 2
+                        ? HexColor(AppTheme.primaryColorString!)
+                        : AppTheme.isLightTheme == false
+                        ? const Color(0xffA2A0A8)
+                        : HexColor(AppTheme.primaryColorString!)
+                        .withOpacity(0.4),
+                    BlendMode.srcIn
+                ),
+                // color: tabController.pageIndex.value == 1
+                //     ? HexColor(AppTheme.primaryColorString!)
+                //     : AppTheme.isLightTheme == false
+                //     ? const Color(0xffA2A0A8)
+                //     : HexColor(AppTheme.primaryColorString!)
+                //     .withOpacity(0.4),
               ),
             ),
             label: "Statistics",
@@ -102,12 +120,21 @@ class _TabScreenState extends State<TabScreen> {
                 width: 20,
                 child: SvgPicture.asset(
                   DefaultImages.card,
-                  color: tabController.pageIndex.value == 2
-                      ? HexColor(AppTheme.primaryColorString!)
-                      : AppTheme.isLightTheme == false
-                      ? const Color(0xffA2A0A8)
-                      : HexColor(AppTheme.primaryColorString!)
-                      .withOpacity(0.4),
+                  colorFilter: ColorFilter.mode(
+                      tabController.pageIndex.value == 2
+                          ? HexColor(AppTheme.primaryColorString!)
+                          : AppTheme.isLightTheme == false
+                          ? const Color(0xffA2A0A8)
+                          : HexColor(AppTheme.primaryColorString!)
+                          .withOpacity(0.4),
+                      BlendMode.srcIn
+                  ),
+                  // color: tabController.pageIndex.value == 2
+                  //     ? HexColor(AppTheme.primaryColorString!)
+                  //     : AppTheme.isLightTheme == false
+                  //     ? const Color(0xffA2A0A8)
+                  //     : HexColor(AppTheme.primaryColorString!)
+                  //     .withOpacity(0.4),
                 ),
               ),
               label: "Card"),
@@ -117,12 +144,21 @@ class _TabScreenState extends State<TabScreen> {
                 width: 20,
                 child: SvgPicture.asset(
                   DefaultImages.user,
-                  color: tabController.pageIndex.value == 3
-                      ? HexColor(AppTheme.primaryColorString!)
-                      : AppTheme.isLightTheme == false
-                      ? const Color(0xffA2A0A8)
-                      : HexColor(AppTheme.primaryColorString!)
-                      .withOpacity(0.4),
+                  colorFilter: ColorFilter.mode(
+                      tabController.pageIndex.value == 3
+                          ? HexColor(AppTheme.primaryColorString!)
+                          : AppTheme.isLightTheme == false
+                          ? const Color(0xffA2A0A8)
+                          : HexColor(AppTheme.primaryColorString!)
+                          .withOpacity(0.4),
+                      BlendMode.srcIn
+                  ),
+                  // color: tabController.pageIndex.value == 3
+                  //     ? HexColor(AppTheme.primaryColorString!)
+                  //     : AppTheme.isLightTheme == false
+                  //     ? const Color(0xffA2A0A8)
+                  //     : HexColor(AppTheme.primaryColorString!)
+                  //     .withOpacity(0.4),
                 ),
               ),
               label: "profile"),

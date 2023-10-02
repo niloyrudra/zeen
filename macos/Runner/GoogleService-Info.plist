@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBQF0H9IbBqxAT7fYxNPf7PG2YBafg-nS4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>655575601877</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.zeen.zeen.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>covidrate</string>
+	<key>STORAGE_BUCKET</key>
+	<string>covidrate.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:655575601877:ios:e1fa1791b218d84f31885c</string>
+	<key>DATABASE_URL</key>
+	<string>https://covidrate.firebaseio.com</string>
+</dict>
+</plist>

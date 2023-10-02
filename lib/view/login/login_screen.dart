@@ -107,9 +107,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                     padding: const EdgeInsets.all(14.0),
                                     child: SvgPicture.asset(
                                       DefaultImages.envelop, // DefaultImages.phone,
-                                      color: _focusNodes[0].hasFocus
-                                          ? HexColor(AppTheme.primaryColorString!)
-                                          : const Color(0xffA2A0A8),
+                                      colorFilter: ColorFilter.mode(
+                                          _focusNodes[0].hasFocus ? HexColor(AppTheme.primaryColorString!) : const Color(0xffA2A0A8),
+                                          BlendMode.srcIn
+                                      ),
+                                      // color: _focusNodes[0].hasFocus
+                                      //     ? HexColor(AppTheme.primaryColorString!)
+                                      //     : const Color(0xffA2A0A8),
                                       // color:  HexColor(AppTheme.secondaryColorString!)
                                     ),
                                   ),
@@ -150,9 +154,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                     padding: const EdgeInsets.all(14.0),
                                     child: SvgPicture.asset(
                                       DefaultImages.pswd,
-                                      color: _focusNodes[1].hasFocus
-                                          ? HexColor(AppTheme.primaryColorString!)
-                                          : const Color(0xffA2A0A8),
+                                      colorFilter: ColorFilter.mode(
+                                          _focusNodes[1].hasFocus ? HexColor(AppTheme.primaryColorString!) : const Color(0xffA2A0A8),
+                                          BlendMode.srcIn
+                                      ),
+                                      // color: _focusNodes[1].hasFocus
+                                      //     ? HexColor(AppTheme.primaryColorString!)
+                                      //     : const Color(0xffA2A0A8),
                                       // color:  HexColor(AppTheme.secondaryColorString!)
                                     ),
                                   ),

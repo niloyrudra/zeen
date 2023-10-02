@@ -225,7 +225,11 @@ class _CountryPickerWidgetState extends State<CountryPickerWidget> {
                           padding: const EdgeInsets.all(18.0),
                           child: SvgPicture.asset(
                             DefaultImages.searchNormal,
-                            color: const Color(0xffA2A0A8),
+                            colorFilter: ColorFilter.mode(
+                                const Color(0xffA2A0A8),
+                                BlendMode.srcIn
+                            ),
+                            // color: const Color(0xffA2A0A8),
                           ),
                         ),
                         contentPadding: const EdgeInsets.only(top: 15),

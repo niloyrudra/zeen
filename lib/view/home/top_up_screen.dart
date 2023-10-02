@@ -235,9 +235,15 @@ class _TopUpScreenState extends State<TopUpScreen> {
                             padding: const EdgeInsets.all(12.0),
                             child: SvgPicture.asset(
                               DefaultImages.swipe,
-                              color: AppTheme.isLightTheme == false
-                                  ? HexColor(AppTheme.primaryColorString!)
-                                  : Colors.white,
+                              colorFilter: ColorFilter.mode(
+                                  AppTheme.isLightTheme == false
+                                      ? HexColor(AppTheme.primaryColorString!)
+                                      : Colors.white,
+                                  BlendMode.srcIn
+                              ),
+                              // color: AppTheme.isLightTheme == false
+                              //     ? HexColor(AppTheme.primaryColorString!)
+                              //     : Colors.white,
                             ),
                           ),
                         ),

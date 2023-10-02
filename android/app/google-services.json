@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "655575601877",
+    "firebase_url": "https://covidrate.firebaseio.com",
+    "project_id": "covidrate",
+    "storage_bucket": "covidrate.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655575601877:android:45d3dc91714dfe6d31885c",
+        "android_client_info": {
+          "package_name": "com.zeen.zeen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "655575601877-1c55tapjjdsm25opmvsg5d5h63lbuesi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtf3NXrYyHLTVfcu22drWBMxS0pc_u9is"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "655575601877-1c55tapjjdsm25opmvsg5d5h63lbuesi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

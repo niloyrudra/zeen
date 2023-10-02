@@ -25,7 +25,11 @@ Widget circleCard({String? image, String? title}) {
               child: SvgPicture.asset(
                 image!,
                 fit: BoxFit.fill,
-                color: AppTheme.isLightTheme == false ? Colors.white : HexColor(AppTheme.primaryColorString!),
+                colorFilter: ColorFilter.mode(
+                    AppTheme.isLightTheme == false ? Colors.white : HexColor(AppTheme.primaryColorString!),
+                    BlendMode.srcIn
+                ),
+                // color: AppTheme.isLightTheme == false ? Colors.white : HexColor(AppTheme.primaryColorString!),
               ),
             ),
           ],
