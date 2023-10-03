@@ -11,6 +11,7 @@ import 'package:zeen/view/login/login_screen.dart';
 import 'package:zeen/view/tab_screen.dart';
 import 'package:zeen/widgets/custom_button.dart';
 import 'package:zeen/widgets/custom_text_form_field.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -111,16 +112,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           : const Color(0xffA2A0A8),
                                       BlendMode.srcIn
                                   ),
-                                  // color: _focusNodes[0].hasFocus
-                                  //     ? HexColor(AppTheme.primaryColorString!)
-                                  //     : const Color(0xffA2A0A8),
-                                  // color:  HexColor(AppTheme.secondaryColorString!)
                                 ),
                               ),
                               hintText: "Full Name",
                               inputType: TextInputType.text,
-                              textEditingController:
-                              signUpController.nameController.value,
+                              textEditingController: signUpController.nameController.value,
                               capitalization: TextCapitalization.words,
                               limit: [
                                 FilteringTextInputFormatter.allow(
@@ -142,16 +138,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           : const Color(0xffA2A0A8),
                                       BlendMode.srcIn
                                   ),
-                                  // color: _focusNodes[1].hasFocus
-                                  //     ? HexColor(AppTheme.primaryColorString!)
-                                  //     : const Color(0xffA2A0A8),
-                                  // color:  HexColor(AppTheme.secondaryColorString!)
                                 ),
                               ),
                               hintText: "Email Address",// "Phone Number",
                               inputType: TextInputType.emailAddress, // TextInputType.phone,
-                              textEditingController:
-                              signUpController.emailController.value,
+                              textEditingController: signUpController.emailController.value,
                               capitalization: TextCapitalization.none,
                               limit: [
                                 // LengthLimitingTextInputFormatter(10),
@@ -309,7 +300,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       ]),
                                     )
                                   // Text(
-                                  //   "By creating an account, you aggree to our Terms and Conditions",
+                                  //   "By creating an account, you agree to our Terms and Conditions",
                                   //   maxLines: 3,
                                   //   style: Theme.of(context)
                                   //       .textTheme
@@ -323,18 +314,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 )
                               ],
                             ),
+
                             const SizedBox(height: 32),
+
                             InkWell(
                               focusColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               hoverColor: Colors.transparent,
                               splashColor: Colors.transparent,
                               onTap: () async {
-                                if (kDebugMode) {
-                                  print("PRESSED");
-                                }
-                                bool shouldNavigate = await signUp( signUpController.emailController.value.text, signUpController.passwordController.value.text );
-                                if( shouldNavigate ) {
+                                // if (kDebugMode) {
+                                //   print("PRESSED");
+                                // }
+                                String shouldNavigate = await signUp( signUpController.emailController.value.text, signUpController.passwordController.value.text );
+                                if( shouldNavigate == "success"  ) {
+
+                                  Fluttertoast.showToast(
+                                      msg: "You signed up successfully!",
+                                      toastLength: Toast.LENGTH_LONG, // Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 3, // 1,
+                                      backgroundColor: Colors.red,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0
+                                  );
+
                                   Get.to(
                                     const TabScreen(),
                                     transition: Transition.rightToLeft,
@@ -346,13 +350,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   //   duration: const Duration(milliseconds: 500),
                                   // );
                                 }
+                                else {
+                                  Fluttertoast.showToast(
+                                      msg: shouldNavigate, // "This is Center Short Toast",
+                                      toastLength: Toast.LENGTH_LONG, // Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 3, // 1,
+                                      backgroundColor: Colors.red,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0
+                                  );
+                                }
 
                               },
-                              child: customButton(
-                                  HexColor(AppTheme.primaryColorString!),
-                                  "Sign Up",
-                                  HexColor(AppTheme.secondaryColorString!),
-                                  context),
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    customButton(
+                                        HexColor(AppTheme.primaryColorString!),
+                                        "Sign Up",
+                                        HexColor(AppTheme.secondaryColorString!),
+                                        context
+                                    ),
+                                  ],
+
+                              ),
                             ),
                             InkWell(
                               focusColor: Colors.transparent,

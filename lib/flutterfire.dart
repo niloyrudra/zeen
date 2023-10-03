@@ -21,33 +21,35 @@ Future<bool> signIn( String email, String password ) async {
 }
 
 // SignUp
-Future<bool> signUp( String email, String password ) async {
-
+Future<String> signUp( String email, String password ) async {
   try {
-
     await FirebaseAuth
         .instance
         .createUserWithEmailAndPassword(
         email: email,
         password: password
     );
-    return true;
+    return 'success';
   } on FirebaseAuthException catch (e) {
     if( e.code == 'weak-password' ) {
       if (kDebugMode) {
         print( 'The password provided is too weak' );
+        return 'The password provided is too weak';
       }
     } else if ( e.code == 'email-already-in-use' ) {
       if (kDebugMode) {
         print( 'The account already exists for that email' );
+        return 'The account already exists for that email';
       }
     }
-    return false;
+    // return false;
+    return 'Unsuccessful attempt, please try again!';
   } catch(e) {
     if (kDebugMode) {
       print(e.toString());
     }
-    return false;
+    // return false;
+    return e.toString();
   }
 
 }
