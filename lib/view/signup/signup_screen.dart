@@ -184,10 +184,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                             : const Color(0xffA2A0A8),
                                         BlendMode.srcIn
                                     ),
-                                    // color: _focusNodes[2].hasFocus
-                                    //     ? HexColor(AppTheme.primaryColorString!)
-                                    //     : const Color(0xffA2A0A8),
-                                    // color:  HexColor(AppTheme.secondaryColorString!)
                                   ),
                                 ),
                                 hintText: "Password",
@@ -299,18 +295,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                                     .primaryColorString!))),
                                       ]),
                                     )
-                                  // Text(
-                                  //   "By creating an account, you agree to our Terms and Conditions",
-                                  //   maxLines: 3,
-                                  //   style: Theme.of(context)
-                                  //       .textTheme
-                                  //       .bodyText2!
-                                  //       .copyWith(
-                                  //         fontWeight: FontWeight.w500,
-                                  //         fontSize: 14,
-                                  //         color: Color(0xff211F32),
-                                  //       ),
-                                  // ),
+
                                 )
                               ],
                             ),
@@ -323,57 +308,63 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               hoverColor: Colors.transparent,
                               splashColor: Colors.transparent,
                               onTap: () async {
-                                // if (kDebugMode) {
-                                //   print("PRESSED");
-                                // }
-                                String shouldNavigate = await signUp( signUpController.emailController.value.text, signUpController.passwordController.value.text );
-                                if( shouldNavigate == "success"  ) {
 
-                                  Fluttertoast.showToast(
-                                      msg: "You signed up successfully!",
-                                      toastLength: Toast.LENGTH_LONG, // Toast.LENGTH_SHORT,
-                                      gravity: ToastGravity.CENTER,
-                                      timeInSecForIosWeb: 3, // 1,
-                                      backgroundColor: Colors.red,
-                                      textColor: Colors.white,
-                                      fontSize: 16.0
+                                if( signUpController.emailController.value.text == "" || signUpController.nameController.value.text == "" || signUpController.passwordController.value.text == "" ) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(content: Text('Please fill out all fields!'))
                                   );
-
-                                  Get.to(
-                                    const TabScreen(),
-                                    transition: Transition.rightToLeft,
-                                    duration: const Duration(milliseconds: 500),
-                                  );
-                                  // Get.to(
-                                  //   const CountryResidenceScreen(),
-                                  //   transition: Transition.rightToLeft,
-                                  //   duration: const Duration(milliseconds: 500),
-                                  // );
                                 }
                                 else {
-                                  Fluttertoast.showToast(
-                                      msg: shouldNavigate, // "This is Center Short Toast",
-                                      toastLength: Toast.LENGTH_LONG, // Toast.LENGTH_SHORT,
-                                      gravity: ToastGravity.CENTER,
-                                      timeInSecForIosWeb: 3, // 1,
-                                      backgroundColor: Colors.red,
-                                      textColor: Colors.white,
-                                      fontSize: 16.0
+
+                                  if( signUpController.emailController.value.text.isEmail ) {
+                                    String shouldNavigate = await signUp( signUpController.emailController.value.text, signUpController.passwordController.value.text );
+                                    if( shouldNavigate == "success"  ) {
+
+                                      Fluttertoast.showToast(
+                                          msg: "You signed up successfully!",
+                                          toastLength: Toast.LENGTH_LONG, // Toast.LENGTH_SHORT,
+                                          gravity: ToastGravity.CENTER,
+                                          timeInSecForIosWeb: 3, // 1,
+                                          backgroundColor: Colors.red,
+                                          textColor: Colors.white,
+                                          fontSize: 16.0
+                                      );
+
+                                      Get.to(
+                                        const TabScreen(),
+                                        transition: Transition.rightToLeft,
+                                        duration: const Duration(milliseconds: 500),
+                                      );
+                                      // Get.to(
+                                      //   const CountryResidenceScreen(),
+                                      //   transition: Transition.rightToLeft,
+                                      //   duration: const Duration(milliseconds: 500),
+                                      // );
+                                    }
+                                    else {
+                                      Fluttertoast.showToast(
+                                          msg: shouldNavigate,
+                                          toastLength: Toast.LENGTH_LONG, // Toast.LENGTH_SHORT,
+                                          gravity: ToastGravity.CENTER,
+                                          timeInSecForIosWeb: 3, // 1,
+                                          backgroundColor: Colors.red,
+                                          textColor: Colors.white,
+                                          fontSize: 16.0
+                                      );
+                                    }
+                                  }
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(content: Text('Please, provide a valid email!'))
                                   );
+
                                 }
 
                               },
-                              child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    customButton(
-                                        HexColor(AppTheme.primaryColorString!),
-                                        "Sign Up",
-                                        HexColor(AppTheme.secondaryColorString!),
-                                        context
-                                    ),
-                                  ],
-
+                              child: customButton(
+                                  HexColor(AppTheme.primaryColorString!),
+                                  "Sign Up",
+                                  HexColor(AppTheme.secondaryColorString!),
+                                  context
                               ),
                             ),
                             InkWell(
