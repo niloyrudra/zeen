@@ -131,7 +131,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                   horizontal: 10, vertical: 4),
                               child: index == 0
                                   ? SizedBox(
-                                  // height: 232,
+                                  // height: 280,
                                   width: 280, //232,
                                   child: Image.asset(
                                     AppTheme.isLightTheme == false

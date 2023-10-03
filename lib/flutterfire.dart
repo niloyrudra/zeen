@@ -55,3 +55,19 @@ Future<String> signUp( String email, String password ) async {
   }
 
 }
+
+// Sign-Out
+Future<String> signOut() async {
+  try{
+    await FirebaseAuth
+        .instance
+        .signOut();
+    return 'success';
+  }
+  catch( e ) {
+    if( kDebugMode ) {
+      print(e.toString());
+    }
+    return e.toString();
+  }
+}
