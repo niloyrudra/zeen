@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
 // SignIn
-Future<bool> signIn( String email, String password ) async {
+Future<String> signIn( String email, String password ) async {
   try {
     await FirebaseAuth
         .instance
@@ -10,13 +10,15 @@ Future<bool> signIn( String email, String password ) async {
         email: email,
         password: password
     );
-    return true;
+    // return true;
+    return 'success';
   }
   catch( e ) {
     if( kDebugMode ) {
       print( e.toString() );
     }
-    return false;
+    // return false;
+    return e.toString();
   }
 }
 

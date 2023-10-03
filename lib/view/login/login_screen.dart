@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -111,10 +112,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                           _focusNodes[0].hasFocus ? HexColor(AppTheme.primaryColorString!) : const Color(0xffA2A0A8),
                                           BlendMode.srcIn
                                       ),
-                                      // color: _focusNodes[0].hasFocus
-                                      //     ? HexColor(AppTheme.primaryColorString!)
-                                      //     : const Color(0xffA2A0A8),
-                                      // color:  HexColor(AppTheme.secondaryColorString!)
                                     ),
                                   ),
                                   hintText: "Email Address", // "Phone Number",
@@ -158,10 +155,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                           _focusNodes[1].hasFocus ? HexColor(AppTheme.primaryColorString!) : const Color(0xffA2A0A8),
                                           BlendMode.srcIn
                                       ),
-                                      // color: _focusNodes[1].hasFocus
-                                      //     ? HexColor(AppTheme.primaryColorString!)
-                                      //     : const Color(0xffA2A0A8),
-                                      // color:  HexColor(AppTheme.secondaryColorString!)
                                     ),
                                   ),
                                   hintText: "Password",
@@ -217,42 +210,59 @@ class _LoginScreenState extends State<LoginScreen> {
                                 splashColor: Colors.transparent,
                                 onTap: () async {
                                   String email = loginController.emailController.value.text;
+                                  String password = loginController.passwordController.value.text;
 
-                                  bool shouldNavigate = await signIn( email, loginController.passwordController.value.text);
-                                  if( shouldNavigate ) {
-                                    Get.to(
-                                      const TabScreen(),
-                                      transition: Transition.rightToLeft,
-                                      duration: const Duration(milliseconds: 500),
+                                  if( email == "" || password == "" ) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(content: Text('Please fill up all fields!'))
                                     );
-                                    // Get.offAll(
-                                    // Get.to(
-                                    //   HomeScreen(homeController: HomeController()),
-                                    //   arguments: {
-                                    //       'userEmail': email
-                                    //   },
-                                    //   transition: Transition.rightToLeft,
-                                    //   duration: const Duration(milliseconds: 500),
-                                    // );
-                                    // Get.to(
-                                    //   const OtpAuthenticationScreen(),
-                                    //   arguments: {
-                                    //     'userEmail': email
-                                    //   },
-                                    //   transition: Transition.rightToLeft,
-                                    //   duration: const Duration(milliseconds: 500),
-                                    // );
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(
-                                    //       builder: (context) => const OtpAuthenticationScreen(),
-                                    //     settings: RouteSettings(
-                                    //       arguments: loginController.emailController.value.text
-                                    //   )
-                                    //                                   // );   )
-                                    //
                                   }
+                                  else {
 
+                                    if( email.isEmail ) {
+
+                                      Fluttertoast.showToast(
+                                          msg: "Processing!",
+                                          toastLength: Toast.LENGTH_LONG, // Toast.LENGTH_SHORT,
+                                          gravity: ToastGravity.CENTER,
+                                          timeInSecForIosWeb: 3, // 1,
+                                          backgroundColor: Colors.red,
+                                          textColor: Colors.white,
+                                          fontSize: 16.0
+                                      );
+
+                                      String shouldNavigate = await signIn( email, loginController.passwordController.value.text);
+                                      if( shouldNavigate == 'success' ) {
+                                        Fluttertoast.showToast(
+                                            msg: "Successfully login!",
+                                            toastLength: Toast.LENGTH_LONG, // Toast.LENGTH_SHORT,
+                                            gravity: ToastGravity.CENTER,
+                                            timeInSecForIosWeb: 3, // 1,
+                                            backgroundColor: Colors.red,
+                                            textColor: Colors.white,
+                                            fontSize: 16.0
+                                        );
+                                        Get.to(
+                                          const TabScreen(),
+                                          transition: Transition.rightToLeft,
+                                          duration: const Duration(milliseconds: 500),
+                                        );
+                                      }
+                                      else {
+                                        ScaffoldMessenger.of(context).showSnackBar(
+                                            const SnackBar(content: Text('Unsuccessful attempt, please try again!'))
+                                        );
+                                      }
+
+                                    }
+                                    else {
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(content: Text('Please provide a valid email!'))
+                                      );
+                                    }
+
+                                  }
+                                  
                                 },
                                 child: customButton(
                                     HexColor(AppTheme.primaryColorString!),

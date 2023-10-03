@@ -331,15 +331,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       );
 
                                       Get.to(
-                                        const TabScreen(),
+                                        const TabScreen(), // const CountryResidenceScreen(),
                                         transition: Transition.rightToLeft,
                                         duration: const Duration(milliseconds: 500),
                                       );
-                                      // Get.to(
-                                      //   const CountryResidenceScreen(),
-                                      //   transition: Transition.rightToLeft,
-                                      //   duration: const Duration(milliseconds: 500),
-                                      // );
                                     }
                                     else {
                                       Fluttertoast.showToast(
