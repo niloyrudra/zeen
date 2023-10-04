@@ -4,6 +4,10 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:google_sign_in_web/google_sign_in_web.dart';
+
 import 'package:zeen/config/images.dart';
 import 'package:zeen/config/text_style.dart';
 // import 'package:zeen/controller/home_controller.dart';
@@ -232,6 +236,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       );
 
                                       String shouldNavigate = await signIn( email, loginController.passwordController.value.text);
+
                                       if( shouldNavigate == 'success' ) {
                                         Fluttertoast.showToast(
                                             msg: "Successfully login!",
@@ -334,7 +339,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               )
                             ],
                           ),
+
                           const SizedBox(height: 16),
+
                           Container(
                             height: 56,
                             width: Get.width,
@@ -360,14 +367,26 @@ class _LoginScreenState extends State<LoginScreen> {
                                   InkWell(
                                     focusColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
+                                    hoverColor: Colors.white,
                                     splashColor: Colors.transparent,
                                     onTap: () async {
-                                      // await signInWithGoogle();
-                                      // Object res = signInWithGoogle();
                                       if( kDebugMode ) {
                                         print("Login With Google");
                                       }
+
+                                      // var googleSignInAccount = await GoogleSignIn().signIn();
+
+                                      // var googleSignInAccount = await GoogleSignInPlugin().signIn();
+
+                                      // var googleSignInAccount = await GoogleSignInPlugin().signInSilently(); || Error: Bad state: GoogleSignInPlugin::init() or GoogleSignInPlugin::initWithParams() must be called before any other method in this plugin.
+
+                                      // if( googleSignInAccount != null ) {
+                                      //   if(kDebugMode) {
+                                      //     print(googleSignInAccount);
+                                      //   }
+                                      // }
+
+
                                     },
                                     child: Text(
                                       "Login with Google",

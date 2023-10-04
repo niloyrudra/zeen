@@ -1,4 +1,8 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:zeen/config/text_style.dart';
+import 'package:zeen/flutterfire.dart';
 import 'package:zeen/view/chat/p2p_chat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,6 +13,8 @@ import 'package:zeen/view/chat/util.dart';
 
 class UsersPage extends StatelessWidget {
   const UsersPage({super.key});
+  // const UsersPage({super.key, user = getCurrentUser()});
+  // this.currentUser = getCurrentUser();
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -54,6 +60,8 @@ class UsersPage extends StatelessWidget {
           itemBuilder: (context, index) {
             final user = snapshot.data![index];
 
+            print(user); // _User(null, null, EejJ33357ypDD64KWRki, null, null, null, null, null, null)
+
             return GestureDetector(
               onTap: () {
                 _handlePressed(user, context);
@@ -66,7 +74,7 @@ class UsersPage extends StatelessWidget {
                 child: Row(
                   children: [
                     _buildAvatar(user),
-                    Text(getUserName(user)),
+                    Text('User'), // Text(getUserName(user)),
                   ],
                 ),
               ),

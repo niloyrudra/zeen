@@ -41,14 +41,17 @@ dependencies:
   card_swiper: ^3.0.1
   swipe: ^0.0.1
   smooth_page_indicator: ^1.1.0
+  photo_view: ^0.14.0
   pinput: ^3.0.1
+  provider: ^6.0.2
   image_picker: ^1.0.4
   firebase_auth: ^4.6.0
   firebase_core: ^2.16.0
   firebase_auth_dart: ^1.0.1
-  #  cloud_firestore: ^4.7.0
+  cloud_firestore: ^4.7.0
   google_sign_in: ^6.1.0
-  firebase_storage: ^11.2.0
+  google_sign_in_web: ^0.12.0+5
+  firebase_storage: ^11.2.8
   fluttertoast: ^8.2.1
   shared_preferences: ^2.1.1
   cached_network_image: ^3.2.3
@@ -62,6 +65,9 @@ dependencies:
   flutter_chat_types: ^3.6.0
   file_picker: ^5.3.0
   path: ^1.8.3
+  country_code_picker: ^2.0.2
+  url_launcher: ^6.0.20
+  equatable: ^2.0.3
 
 dev_dependencies:
   flutter_test:

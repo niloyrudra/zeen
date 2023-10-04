@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+// import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -317,9 +317,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 else {
 
                                   if( signUpController.emailController.value.text.isEmail ) {
-                                    String shouldNavigate = await signUp( signUpController.emailController.value.text, signUpController.passwordController.value.text );
-                                    if( shouldNavigate == "success"  ) {
 
+                                    Fluttertoast.showToast(
+                                        msg: "Processing!",
+                                        toastLength: Toast.LENGTH_LONG, // Toast.LENGTH_SHORT,
+                                        gravity: ToastGravity.CENTER,
+                                        timeInSecForIosWeb: 3, // 1,
+                                        backgroundColor: Colors.red,
+                                        textColor: Colors.white,
+                                        fontSize: 16.0
+                                    );
+
+                                    String shouldNavigate = await signUp( signUpController.emailController.value.text, signUpController.passwordController.value.text, signUpController.nameController.value.text );
+
+                                    if( shouldNavigate == "success"  ) {
                                       Fluttertoast.showToast(
                                           msg: "You signed up successfully!",
                                           toastLength: Toast.LENGTH_LONG, // Toast.LENGTH_SHORT,
@@ -329,7 +340,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           textColor: Colors.white,
                                           fontSize: 16.0
                                       );
-
                                       Get.to(
                                         const TabScreen(), // const CountryResidenceScreen(),
                                         transition: Transition.rightToLeft,
@@ -347,10 +357,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           fontSize: 16.0
                                       );
                                     }
+
                                   }
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(content: Text('Please, provide a valid email!'))
-                                  );
+                                  else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(content: Text('Please, provide a valid email!'))
+                                    );
+                                  }
 
                                 }
 
